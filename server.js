@@ -48,6 +48,31 @@ app.post("/transfer", async (req, res) => {
   }
 });
 
+app.get("/transaction/:id", async (req, res) => {
+  const client = await pool.connect();
+  const { id } = req.params;
+  try {
+    if (id === undefined) {
+      return (res, status(400).json({ error: "Transaction id is required" }));
+    }
+    const response = await client.query(
+      `select * from transaction where id=$1`,
+      [id],
+    );
+    if (response.rows.length === 0) {
+      return res.status(404).json({ error: "Transaction not found" });
+    }
+    return res.status(200).json({
+      success: true,
+      data: response.rows[0],
+      message: "Transaction fetched successfully",
+    });
+  } catch (error) {
+    console.error("Error fetching transaction:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get("/transactions", async (_, res) => {
   const client = await pool.connect();
   try {
