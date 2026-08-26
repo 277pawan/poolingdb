@@ -1,0 +1,21 @@
+name: testing
+run-name: ${{github.actor}} the tester
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo "hello ${{github.actor}} how are you?"
+
+      - name: show date
+        run: date
+
+      - name: show node version
+        run: node --version
