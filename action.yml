@@ -1,0 +1,16 @@
+name: Input-action
+run-name: ${{github.actor}} the actor
+
+inputs:
+  who-to-greet:
+  description: Who to greet
+  required: true
+  default: Alexis
+
+outputs:
+  time:
+    description: the time we greeted you
+
+runs:
+using: node24
+main: dist/index.js

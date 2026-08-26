@@ -19,3 +19,8 @@ jobs:
 
       - name: show node version
         run: node --version
+
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          who-to-greet: Ankita
