@@ -3,9 +3,9 @@ run-name: the actor
 
 inputs:
   who-to-greet:
-  description: Who to greet
-  required: true
-  default: Alexis
+    description: Who to greet
+    required: true
+    default: Alexis
 
 outputs:
   time:
