@@ -1,5 +1,5 @@
 name: Input-action
-run-name: ${{github.actor}} the actor
+run-name: the actor
 
 inputs:
   who-to-greet:
